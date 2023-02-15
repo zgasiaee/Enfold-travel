@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Africa</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        ul,li{
+            list-style-type: none;
+        }
+        .container{
+            width: 85%;
+            margin: auto;
+        }
+        .call-us{
+            background-color: rgb(16,155,197);
+        }
+        .line-1{
+            font-size: 12px;
+            font-family:Open Sans ;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .line-1-1{
+            color: #fff;
+            z-index: 4;
+        }
+        .line-1-2{
+            z-index: 4;
+        }
+        .line-1-2>ul{
+            display: flex;
+            height: 100%;
+        }
+        .line-1-2>ul>li>a{
+            color: #fff;
+            text-decoration: none;
+            padding:0 10px;
+        }
+        .line-1-2 a:hover{
+            cursor: pointer;
+            opacity: 0.7;
+            text-decoration:underline ;
+        }
+        .header{
+            width: 100%;
+            height: 70px;
+            background-color: #fff;
+        }
+        .header-container{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 5px;
+        }
+        .header-container>.nav-menu{
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .header-container>.nav-menu>ul{
+            display: flex;
+            height: 100%;
+        }
+        .toggle{
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            z-index: 5;
+        }
+        .toggle>i{
+            padding: 0 8px;
+            color: rgb(158,158,158);
+        }
+        .header-container>.nav-menu>ul>li{
+            display: flex;
+            font-family: Open Sans;
+        }
+        .header-container>.nav-menu>ul>li>a{
+            color: rgb(158,158,158);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            text-decoration: none;
+            z-index: 4;
+            font-size: 14px;
+            transition: 200ms;
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+            z-index: 4;
+            cursor: pointer;
+        }
+        .logo>img{
+            width: 200px;
+            height: 60px;
+        }
+        .nav-menu>ul>li>a:hover{
+            color: #151414;
+        }
+        .mega-menu{
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: 6;
+            display: none;
+        }
+        .nav-menu>ul>li:hover>ul{
+            display: block;
+        }
+        .mega-menu>li{
+            min-width: 200px;
+            background-color: #f8f8f8;
+            display: flex;
+        }
+        .mega-menu>li>a{
+            text-decoration: none;
+            color:#706f6f;
+            font-size: 12px;
+            padding:10px 20px;
+            width: 100%;
+            transition: 500ms;
+        }
+        .mega-menu>li>a:hover{
+            background-color: #efefef;
+            color: #131111;
+        }
+        .banner-container{
+            width: 45%;
+            height: 574px;
+            display: flex;
+            justify-content: center;
+        }
+        .banner-container>.parent-banner{
+            width: 90%;
+            height: 574px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner-container>.parent-banner>div{
+            width: 65%;
+            height: 65%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            z-index: 3;
+            font-family: 'Open Sans';
+            font-size: 16px;
+            transition: 500ms;
+            position: relative;
+            text-align: center;
+        }
+        .banner{
+            background: url("images/web1/banner-3.jpg") no-repeat center center;
+            background-size: cover;
+        }
+        .banner-container>.parent-banner>div::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            transition: 500ms;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .banner-container>.parent-banner>div>p,.banner-container>.parent-banner>div>span{
+            z-index: 4;
+            transition: 500ms;
+        }
+        .banner-container>.parent-banner>div:hover::after,.banner-container>.parent-banner>div:hover>p,.banner-container>.parent-banner>div:hover>span{
+            opacity: 0;
+            visibility: hidden;
+        }
+        .a-holder{
+            width: 100%;
+            height: 50px;
+            background-color: #17809b;
+            display: flex;
+            font-size: 11px;
+            font-family: 'Open Sans';
+            cursor: pointer;
+        }
+        .a-holder>.container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .a-holder>.container>.a-box>a{
+            padding: 0 5px;
+        }
+        .a-holder>.container>a,.a-holder>.container>.a-box>a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .a-holder>.container>a:hover,.a-holder>.container>.a-box>a:hover{
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px){
+            .line-1{
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            .line-1-1{
+                margin: 8px 0;
+            }
+            .banner-container>.parent-banner>div{
+                width: 70%;
+                height: 70%;
+            }
+            .a-holder>.container{
+                flex-direction: column;
+            }
+            .a-holder>.container>a{
+                padding: 5px 0;
+            }
+            .parent-img>h1{
+                font-size: 45px;
+            }
+        }
+        @media (max-width:990px ) {
+            .header-container>.nav-menu>ul{
+                display: none;
+            }
+            .toggle{
+                display: block;
+            }
+            .logo>img{
+                width: 250px;
+                height: 80px;
+            }
+            .banner-container{
+                height: 397px;
+            }
+            .banner-container>.parent-banner{
+                height: 397px;
+            }
+        }
+        @media (max-width:690px ) {
+            .banner-container>.parent-banner>div{
+                width: 75%;
+                height: 45%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="call-us">
+    <div class="container">
+        <div class="line-1">
+            <div class="line-1-1">
+                <div >call us now:555-147-5643</div>
+            </div>
+            <div class="line-1-2">
+                <ul>
+                    <li>
+                        <a href="#">customer Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Registration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="container">
+        <div class="header-container">
+
+            <div class="logo">
+                <img src="images/web1/logo-large.png" alt="logo">
+            </div>
+
+            <nav class="nav-menu">
+
+                <div class="toggle">
+                    <i class="fa fa-search"></i>
+                    <i class="fa fa-bars"></i>
+                </div>
+                <ul>
+                    <li>
+                        <a href="web1.html">Welcome</a>
+                    </li>
+                    <li>
+                        <a href="Destinations.html">Destinations</a>
+                        <ul class="mega-menu">
+                            <li>
+                                <a href="Africa.html">Africa</a>
+                            </li>
+                            <li>
+                                <a href="Asia.html">Asia</a>
+                            </li>
+                            <li>
+                                <a href="Europe.html">Europe</a>
+                            </li>
+                            <li>
+                                <a href="North%20America.html">North America</a>
+                            </li>
+                            <li>
+                                <a href="South%20America.html">South America</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="Deals.html">Deals</a>
+                    </li>
+                    <li>
+                        <a href="About.html">About</a>
+                    </li>
+                    <li>
+                        <a href="Contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">News</a>
+                    </li>
+                    <li>
+                        <a class="fa fa-search" href="#"></a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<div class="banner-container">
+<div class="parent-banner">
+    <div class="banner">
+        <p>Bridge Tour</p>
+        <span>2799.00</span>
+    </div>
+</div>
+
+
+    </div>
+
+<div class="a-holder">
+    <div class="container">
+        <a href="https://kriesi.at">- powered by Enfold Wordpress Theme</a>
+        <div class="a-box">
+            <a href="#">Welcome</a>
+            <a href="#">My Account</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+    </div>
+</div>
+
+</div>
+</body>
+</html>
